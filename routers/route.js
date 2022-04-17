@@ -25,6 +25,8 @@ route.post("/recuperarSenha", controllerUsuario.postRecuperarSenha);
 route.get("/usuarioCreate", controllerUsuario.getCreate);
 route.post("/usuarioCreate", controllerUsuario.postCreate);
 route.get("/usuarioList", controllerUsuario.getList);
+route.get("/usuarioEdit/:id", controllerUsuario.postEdit);
+route.get("/usuarioDelete/:id", controllerUsuario.getDelete);
 
 
 //Animal-CRUD
@@ -32,5 +34,5 @@ route.get("/animalCreate", controllerAnimal.getCreate);
 route.post("/animalCreate", controllerAnimal.postCreate);
 route.get("/animalList", controllerAnimal.getList);
 route.get("/animalEdit/:id", controllerAnimal.getEdit);
-route.post("/animalEdit", controllerAnimal.postEdit);
+route.post("/animalEdit/:id", controllerAnimal.postEdit);
 route.get("/animalDelete/:id", controllerAnimal.getDelete);

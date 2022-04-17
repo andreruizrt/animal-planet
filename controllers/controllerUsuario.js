@@ -60,5 +60,18 @@ module.exports = {
         db.Usuario.findAll().then(usuarios => {
             res.render('usuario/usuarioList', { usuarios: usuarios.map(usuarios => usuarios.toJSON()) });
         });
+    },
+    async getEdit(req, res) {
+        await Usuario.findOne({ _id: req.params.id }).then((usuarios) => {
+            res.render('usuario/usuarioList', { usuarios: usuarios.toJSON() });
+        });
+    },
+    async postEdit(req, res) {
+        await Usuario.findOneAndUpdate({ _id: req.body.id }, req.body);
+        res.redirect('/usuarioList');
+    },
+    async getDelete(req, res) {
+        await Usuario.findOneAndRemove({ _id: req.params.id });
+        res.redirect('/usuarioList');
     }
 }
