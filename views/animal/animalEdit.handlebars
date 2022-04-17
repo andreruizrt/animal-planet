@@ -1,8 +1,14 @@
-<form action="/receitaEdit" method="POST">​
-    <input type="hidden" name="id" value="{{receitas._id}}">​
-    <p>Nome da Receita:</p> <input type="text" name="nome" ​ value="{{receitas.nome}}"> ​
-    <p>Ingredientes da Receita:</p> <input type="text" name="ingredientes" ​ value="{{receitas.ingredientes}}">​
-    <p>Modo de preparo:</p> <input type="text" name="preparo" value=" {{receitas.preparo}}">​
+<form action="/animalEdit" method="POST">​   
+    <input type="hidden" name="id" value="{{animals._id}}">​
+    Nome:<input type="text" name="nome" value="{{animals.nome}}">
+    <br> <br>
+    Nome do Proprietário: <input type="text" name="nomeDoProprietario" value="{{animals.nomeProprietario}}">
+    <br> <br>
+    Endereco: <input type="text" name="endereco" value="{{animals.endereco}}">
+    <br> <br>
+    Tipo: <input type="text" name="tipo" value="{{animals.tipo}}">
+    <br> <br>
+    Raca: <input type="text" name="raca" value="{{animals.raca}}">​
     <br><br> ​
-    <input type="submit" value="Editar">​
+    <input type="submit" value="Editar" >​
 </form>

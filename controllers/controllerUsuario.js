@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
 const path = require('path');
 
-// db.sequelize.sync({force: true}).then(() => {
+// db.sequelize.sync({ force: true }).then(() => {
 //     console.log('{ force: true }');
 // });
 
@@ -18,13 +18,11 @@ module.exports = {
         var user = {
             login: req.body.login
         }
-        db.Usuario.findAll({ where: { login: req.body.login, senha: req.body.senha } }
-        ).then(usuarios => {
+        db.Usuario.findAll({ where: { login: req.body.login, senha: req.body.senha } }).then(usuarios => {
             if (usuarios.length > 0) {
                 req.session.login = req.body.login;
                 res.redirect('/home');
-            }
-            else
+            } else
                 res.redirect('/');
         });
     },
@@ -32,8 +30,7 @@ module.exports = {
         db.Usuario.findAll({ where: { login: req.params.login } }).then(usuarios => {
             if (usuarios.length > 0) {
                 res.render('usuario/recuperarSenha', { layout: 'noMenu.handlebars', login: req.params.login, pergunta: usuarios[0].pergunta_secreta });
-            }
-            else {
+            } else {
                 res.redirect('/');
             }
         });
@@ -42,8 +39,7 @@ module.exports = {
         db.Usuario.findAll({ where: { login: req.body.login, resposta_pergunta: req.body.resposta } }).then(usuarios => {
             if (usuarios.length > 0) {
                 res.render('usuario/senhaRecuperada', { layout: 'noMenu.handlebars', senha: usuarios[0].senha });
-            }
-            else {
+            } else {
                 res.redirect('/');
             }
         });
@@ -65,4 +61,4 @@ module.exports = {
             res.render('usuario/usuarioList', { usuarios: usuarios.map(usuarios => usuarios.toJSON()) });
         });
     }
-}   
+}
